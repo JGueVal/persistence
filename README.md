@@ -1,6 +1,6 @@
 # persistence
-La raíz numérica multiplicativa es el producto de todas las cifras de un número.
-La persistencia es el número de veces que se puede hacer la raíz numérica multiplicativa consecutivamente hasta terminar con una cifra. 969 es un número de persistencia 4:
+La raíz digital multiplicativa es el producto de todas las cifras de un número.
+La persistencia es el número de veces que se puede hacer la raíz digital multiplicativa consecutivamente hasta terminar con una cifra. 969 es un número de persistencia 4:
 
 9x6x9 = 486
 
