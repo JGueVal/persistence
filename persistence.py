@@ -1,32 +1,53 @@
-import math
-import itertools
+import math as m
+import itertools as i
 
-digits = [9,8,7,6,4,3,2]
-#digits = [9,8,7,3,2]
+pwrs2 = []
+pwrs3 = []
+pwrs7 = []
 
-per11 = [2,7**6,8**6,9**2]
-x = math.prod(per11)
-### ===========================================================
+r = range(0,100000)
 
-for numlng in range(50000,19999,-1): #reverse
-    for c in itertools.combinations_with_replacement(digits, numlng):
-        if c[0] == 9:
-##            continue
-##        elif candidate[0] == 8:
-#            continue
-#        elif candidate[0] == 7:
-            print(c.count(9),"9s",c.count(8),"8s",c.count(7),"7s",c.count(6),"6s",c.count(4),"4s",c.count(3),"3s",c.count(2),"2s")
-#            print(c.count(9),"9s",c.count(8),"8s",c.count(7),"7s",c.count(3),"3s",c.count(2),"2s")
-            result = math.prod(c)
-            numstring = [int(dig) for dig in str(result)]
-            if math.prod(numstring) == x:
-                per12 = ''.join([str(n) for n in candidate])[::-1]
-                print("FOUND IT!")
-                t = open("perst.txt", "a")
-                t.write(per12+"\n"+numlng)
+for c in r:
+    pw = 7**c
+    pwrs7.append(pw)
+    pw = 3**c
+    pwrs3.append(pw)
+    pw = 2**c
+    pwrs2.append(pw)
+    print(c,"completo")
+
+n = 12
+
+rr = range(99999,-1,-1)
+
+for p in i.product(rr, repeat=3):
+    droot = pwrs7[p[0]]*pwrs3[p[1]]*pwrs2[p[2]]
+    count = 1
+    print(p)
+    while count < n:
+        string = [int(dig) for dig in str(droot)]
+        if len(string) == 1:
+            break
+        elif string.count(0) > 0:
+            if count == n-1:
+                t = open("perst.csv","a")
+                t.write("!"+str(p)+" ("+str(m.fsum(p))+")\n")
                 t.close()
-                print("Succesfully printed")
+                break
+            else:
+                break
+        elif string.count(5) > 0:
+            if count >= n-2:
+                t = open("perst.csv","a")
+                t.write("!!"+str(p)+" ("+str(m.fsum(p))+")\n")
+                t.close()
+                break
+            else:
                 break
         else:
-            break
-### ===========================================================
+            droot = m.prod(string)
+            count += 1
+    if count == n:
+        t = open("perst.csv","a")
+        t.write(str(p)+" ("+str(m.fsum(p))+")\n")
+        t.close()
