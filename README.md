@@ -10,7 +10,7 @@ La persistencia es el número de veces que se puede hacer la raíz digital multi
 
 1x8 = 8
 
-Los números menores con su persistencia son:
+Los números más pequeños con cada persistencia son:
 
  1	10 (0)
  
