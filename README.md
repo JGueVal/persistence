@@ -1,6 +1,6 @@
 # Persistence
-The digital root of a number is the product of all the digits that make it up.
-Persistence is the number of time we can calculate digital roots of each previous digital root until we hit a single digit number. 969 is a number with a persistence of 4:
+The multiplicative digital root of a number is found by multiplying all the digits of said number, and repeating this operation util a single number comes out.
+Persistence is the number of steps we need to get to the multiplicative digital root. 969 is a number with a persistence of 4:
 
 - 9x6x9 = 486
 - 4x8x6 = 192
@@ -28,8 +28,8 @@ The smallest numbers with each persistence are:
 <hr/>
 
 # Persistencia
-La raíz digital multiplicativa es el producto de todas las cifras de un número.
-La persistencia es el número de veces que se puede hacer la raíz digital multiplicativa consecutivamente hasta terminar con una cifra. 969 es un número de persistencia 4:
+La raíz digital multiplicativa es el resultado de multiplicar las cifras de un número, y hacer lo propio con el resultado hasta terminar con una sola cifra.
+La persistencia es el número de pasos necesarios para llegar a la raíz digital multiplicativa. 969 es un número de persistencia 4:
 
 - 9x6x9 = 486
 - 4x8x6 = 192
