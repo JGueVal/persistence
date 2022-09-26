@@ -22,7 +22,7 @@ The smallest numbers with each persistence are:
 11.	277777788888899 (4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0)
 
 ### Notes:
-- There's no number below 200,000 digits long that has a persistence above 11.
+- There's no number below 20,000 digits long that has a persistence above 11.
 - It is believed that no number with persistence 12 exists.
 
 <hr/>
@@ -51,5 +51,5 @@ Los números más pequeños con cada persistencia son:
 11.	277777788888899 (4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0)
 
 ### Notas:
-- No hay número menor de 200.000 cifras con persistencia mayor de 11.
+- No hay número menor de 20.000 cifras con persistencia mayor de 11.
 - Se cree que no existe un número que tenga persistencia 12.
