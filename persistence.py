@@ -36,7 +36,7 @@ def docprint():
 for p9 in ran:
     for p8 in ran:
         p98 = pwrs9[p9] * pwrs8[p8]
-        for p7 in r:
+        for p7 in ran:
             p987 = p98 * pwrs7[p7]
             for p3 in range(2):
                 for p2 in range(3):
