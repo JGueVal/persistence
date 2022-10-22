@@ -1,6 +1,7 @@
 from math import prod
 
-r = range(10)
+MAXR = 10
+r = range(MAXR)
 
 pw9 = [9**p9 for p9 in r]
 pw8 = [8**p8 for p8 in r]
@@ -17,13 +18,13 @@ def docprint(z, y, x, w, v, u):
         with open('errlog.txt', 'a') as e:
             e.write(f'ERROR at: {z} {y} {x} {w}\n')
 
-def iove(p):
+def jove(p):
     for p9 in r:
         for p8 in r:
             p98 = pw9[p9] * pw8[p8]
             for p7 in r:
                 p987 = p98 * pw7[p7]
-                for p5 in range(1,10):
+                for p5 in range(1,MAXR):
                     for p3 in range(2):
                         for p2 in range(3):
                             print(f'{p9}, {p8}, {p7}, {p5}, {p3}, {p2}',
@@ -39,21 +40,12 @@ def iove(p):
                             if cn == p:
                                 print(f'{p}: {p9}, {p8}, {p7}, {p5}, {p3}, {p2}')
                                 #docprint(p9, p8, p7, p5, p3, p2)
-                                break
-                        if cn == p:
-                            break
-                    if cn == p:
-                        break
-                if cn == p:
-                    break
-            if cn == p:
-                break
-        if cn == p:
-            break
+                                return
 
+def loop(maxp):
+    for perst in range(1,maxp):
+        jove(perst)
 
-def loop():
-    for perst in range(1,7):
-        iove(perst)
+# ==============================
 
-loop()
+loop(7)
