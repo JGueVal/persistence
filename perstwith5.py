@@ -1,6 +1,7 @@
 from math import prod
 
-MAXR = 10
+MAXR = int(input("Enter max range.\n \
+    400 has been tried with persistence 6 without success: "))
 r = range(MAXR)
 
 pw9 = [9**p9 for p9 in r]
@@ -27,13 +28,18 @@ def jove(p):
                 for p5 in range(1,MAXR):
                     for p3 in range(2):
                         for p2 in range(3):
-                            print(f'{p9}, {p8}, {p7}, {p5}, {p3}, {p2}',
-                                end='\r', flush=True)
+                            print(f'{p9}, {p8}, {p7}, {p5}, {p3}, {p2}', end='\r', flush=True)
                             dr = p987 * pw5[p5] * pw3[p3] * pw2[p2]
                             cn = 1
                             while cn < p:
                                 st = [int(d) for d in str(dr)]
                                 if len(st) == 1:
+                                    break
+                                elif 0 in st:
+                                    if cn == p-1:
+                                        print(f'{p}: {p9}, {p8}, {p7}, {p5}, {p3}, {p2}')
+                                        #docprint(p9, p8, p7, p5, p3, p2)
+                                        return
                                     break
                                 dr = prod(st)
                                 cn += 1
@@ -42,10 +48,8 @@ def jove(p):
                                 #docprint(p9, p8, p7, p5, p3, p2)
                                 return
 
-def loop(maxp):
-    for perst in range(1,maxp):
-        jove(perst)
 
 # ==============================
-
-loop(7)
+b = int(input("Enter persistence (5 is highest sure hit): "))
+print("P: n, o, s, c, t, d")
+jove(b)
