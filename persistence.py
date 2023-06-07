@@ -1,8 +1,5 @@
 from math import prod
-
-###--NECESARIO A PARTIR DE PYTHON 3.10.7--
-#from sys import set_int_max_str_digits
-#set_int_max_str_digits(0)
+from random import sample
 
 PERST = 12
 r = range(100000)
@@ -28,31 +25,33 @@ def docprint():
         except:
             print(f'ERROR at: {p9}, {p8}, {p7}, {p3}, {p2}')
 
-# Se puede usar itertools, pero es conveniente esto en caso de querer interrumpir el programa
-# EJEMPLO: "if p9 > 99997: continue", "if p9 >= 99997 and p8 > 65535: continue"
-# en números más pequeños, buscar si hay un 0 o un 5 lo ralentiza
+            
+#r = sample(r,len(r))    # aleatorio
+
 for p9 in r:
     for p8 in r:
-        p98 = pwrs9[p9] * pwrs8[p8]
+        m1 = pwrs9[p9] * pwrs8[p8]
         for p7 in r:
-            p987 = p98 * pwrs7[p7]
+            m2 = m1 * pwrs7[p7]
             for p3 in range(2):
                 for p2 in range(3):
-                    if p9+p8+p7+p3+p2 < 20000:
-                        continue
-                    step = p987 * pwrs3[p3] * pwrs2[p2]
-                    count = 1
-                    print(f'{p9}, {p8}, {p7}, {p3}, {p2}',
-                        end='\r', flush=True)
-                    while count < PERST:
-                        numstr = [int(dig) for dig in str(step)]
-                        if len(numstr) == 1:
-                            break
-                        elif 0 in numstr:
-                            if count == PERST-1:
-                                docprint()
-                            break
-                        step = prod(numstr)
-                        count += 1
-                    if count == PERST:
-                        docprint()
+                    if p9+p8+p7+p3+p2 <= 20000:     # continue ya innecesario
+                        step = m2 * pwrs3[p3] * pwrs2[p2]
+                        count = 1
+                        print(f'Check P{PERST}@{p9}_{p8}_{p7}_{p3}_{p2}___',
+                            end='\r', flush=True)
+                        go_on = True    # breaks en while sustituidos
+                        while count < PERST and go_on:
+                            numstr = [int(dig) for dig in str(step)]
+                            if len(numstr) == 1:
+                                go_on = False
+                                count -= 1  # para corregir la suma extra siguiente
+                            if 0 in numstr:
+                                go_on = False
+                            step = prod(numstr)
+                            count += 1  # no nos daba problemas antes con los break
+                        if count == PERST:
+                            docprint()
+
+
+# IVLIVS mppr.
