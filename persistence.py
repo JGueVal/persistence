@@ -14,16 +14,16 @@ r = range(99999, -1, -1)
 
 def docprint():
     try:
-        print(f'{p9}, {p8}, {p7}, {p3}, {p2}')
+        print(f'{p9}_{p8}_{p7}_{p3}_{p2}___________')
         with open('perst.txt', 'a') as t:
             t.write(f'{p9} 9s, {p8} 8s, {p7} 7s, {p3} 3s, {p2} 2s\n')
     except:
         try:
-            print(f'{p9}, {p8}, {p7}, {p3}, {p2}')
+            print(f'{p9}_{p8}_{p7}_{p3}_{p2}___________')
             with open('perstB.txt', 'a') as t:
                 t.write(f'{p9} 9s, {p8} 8s, {p7} 7s, {p3} 3s, {p2} 2s\n')
         except:
-            print(f'ERROR at: {p9}, {p8}, {p7}, {p3}, {p2}')
+            print(f'ERROR at: {p9}_{p8}_{p7}_{p3}_{p2}___________')
 
             
 #r = sample(r,len(r))    # aleatorio
