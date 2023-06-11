@@ -43,7 +43,7 @@ for p9 in r:
                         go_on = True    # breaks en while sustituidos
                         while count < PERST and go_on:
                             numstr = [int(dig) for dig in str(step)]
-                            if len(numstr) == 1:
+                            if step < 10:   # cambiado desde len(numstr) == 1, (más rápido?)
                                 go_on = False
                                 count -= 1  # para corregir la suma extra siguiente
                             if 0 in numstr:
