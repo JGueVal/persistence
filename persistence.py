@@ -2,7 +2,9 @@ from math import prod
 from random import sample
 
 PERST = 12
-r = range(100000)
+rango = 100000
+
+r = range(rango)
 
 pwrs9 = [9**p9 for p9 in r]
 pwrs8 = [8**p8 for p8 in r]
@@ -10,7 +12,7 @@ pwrs7 = [7**p7 for p7 in r]
 pwrs3 = [1, 3]
 pwrs2 = [1, 2, 4]
 
-r = range(99999, -1, -1)
+r = range(rango-1, -1, -1)
 #r = sample(r,len(r))    # aleatorio
 
 
@@ -60,4 +62,4 @@ for p9 in r:
                             tryDocPrint()
 
 
-# IVLIVS mppr.
+# mppr. J.G.V.
